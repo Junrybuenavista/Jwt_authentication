@@ -1,0 +1,6 @@
+install json package:           npm init -y
+
+install express:                
+install morgan:
+install http-errors
+install dotenv                  npm install --save express morgan http-errors dotenv
