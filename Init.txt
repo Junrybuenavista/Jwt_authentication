@@ -3,4 +3,14 @@ install json package:           npm init -y
 install express:                
 install morgan:
 install http-errors
-install dotenv                  npm install --save express morgan http-errors dotenv
+install dotenv:                 npm install --save express morgan http-errors dotenv
+install nodemon:                npm i nodemon
+install joi                     npm install --save @hapi/joi
+
+
+
+
+
+
+
+https://www.youtube.com/watch?v=3v5UU7F0tMg&list=PLdHg5T0SNpN0ygjV4yGXNct25jY_ue70U&index=10

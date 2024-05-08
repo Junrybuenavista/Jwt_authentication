@@ -1,0 +1,37 @@
+GET http://localhost:7777/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxMzU3NTEsImV4cCI6MTcxNTEzNTgxMSwiYXVkIjoiNjYzNWM1NTc2MTFhZWVmNjFlZGMyNTMyIiwiaXNzIjoiamh1bnRhLmNvbSJ9.c3B1J7HHYv67aZ9_8pUBsiOn49vpwwzuRTXLkuEBjQE
+###
+POST http://localhost:7777/auth/login
+Content-Type: application/json
+
+{   
+    "name": "Junry",
+    "email": "Junry@yahoo.com",
+    "password": "Junry123"
+}
+
+###
+
+POST http://localhost:7777/auth/register
+Content-Type: application/json
+
+{   
+    "name": "Junry",
+    "email": "Junry@yahoo.com",
+    "password": "Junry123"
+}
+
+###
+POST http://localhost:7777/auth/refresh-token
+Content-Type: application/json
+
+{   
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxMzU2NzksImV4cCI6MTc0NjY5MzI3OSwiYXVkIjoiNjYzNWM1NTc2MTFhZWVmNjFlZGMyNTMyIiwiaXNzIjoiamh1bnRhLmNvbSJ9.kAfSMxfdzSMMtosKh8_1nFyZHSTNGwou2CyKCuDA1bg"
+}
+
+###
+DELETE  http://localhost:7777/auth/logout
+
+
+####
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQ4MDE5MzMsImV4cCI6MTc0NjM1OTUzMywiYXVkIjoiNjYzNWM1NTc2MTFhZWVmNjFlZGMyNTMyIiwiaXNzIjoiamh1bnRhLmNvbSJ9._4-eJwvRPtV7-pZm65Jluhmz0ooXDR-NC8EYeQ5UyCI
