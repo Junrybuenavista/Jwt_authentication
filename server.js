@@ -21,10 +21,9 @@ const usersRouter = require('./router/userAuth')
 app.use('/auth',usersRouter)
 
 //-----------------------error handler-----------------------------
+
+
 app.use(async(req, res,next) => {
-    //const error = new Error('Page not found')
-    //error.status = 404
-    //next(error)
     next(httpError.NotFound('This link does not exist'))
 })
 

@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  
   "scripts": {
     "dev": "nodemon server.js",
-    "redis": "nodemon ./helper/redisConnect.js"  
+    "redis": "nodemon ./helper/redisConnect.js"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +19,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.3",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.9.13",
     "redis": "^4.6.13"
   }
-  
 }

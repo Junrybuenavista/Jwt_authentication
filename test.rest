@@ -1,24 +1,23 @@
 GET http://localhost:7777/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxMzU3NTEsImV4cCI6MTcxNTEzNTgxMSwiYXVkIjoiNjYzNWM1NTc2MTFhZWVmNjFlZGMyNTMyIiwiaXNzIjoiamh1bnRhLmNvbSJ9.c3B1J7HHYv67aZ9_8pUBsiOn49vpwwzuRTXLkuEBjQE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUyNDQ4NTIsImV4cCI6MTcxNTI0NDkxMiwiYXVkIjoiNjYzYzhmMzQxZGE2MDk0NDJlOGY5ZDU3IiwiaXNzIjoiamh1bnRhLmNvbSJ9.TLUpeczd35LtkM6wjm5rNJq7NsPnoaPj5Peq1TX7bhs
 ###
 POST http://localhost:7777/auth/login
 Content-Type: application/json
 
 {   
     "name": "Junry",
-    "email": "Junry@yahoo.com",
+    "email": "junrybuenavista@yahoo.com",
     "password": "Junry123"
 }
 
 ###
-
 POST http://localhost:7777/auth/register
 Content-Type: application/json
 
 {   
-    "name": "Junry",
-    "email": "Junry@yahoo.com",
-    "password": "Junry123"
+    "name": "Junry Buenavista",
+    "email": "junrybuenavista1@yahoo.com",
+    "password": "Junry1231"
 }
 
 ###
@@ -26,7 +25,7 @@ POST http://localhost:7777/auth/refresh-token
 Content-Type: application/json
 
 {   
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxMzU2NzksImV4cCI6MTc0NjY5MzI3OSwiYXVkIjoiNjYzNWM1NTc2MTFhZWVmNjFlZGMyNTMyIiwiaXNzIjoiamh1bnRhLmNvbSJ9.kAfSMxfdzSMMtosKh8_1nFyZHSTNGwou2CyKCuDA1bg"
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUyMzgxMzYsImV4cCI6MTc0Njc5NTczNiwiYXVkIjoiNjYzNWM1NTc2MTFhZWVmNjFlZGMyNTMyIiwiaXNzIjoiamh1bnRhLmNvbSJ9.ZDbf1pjjlPPJn-nSOt4EWMQA3D88LNYSgURLBruAYzA"
 }
 
 ###
