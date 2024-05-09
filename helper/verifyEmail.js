@@ -21,6 +21,12 @@ module.exports = async(email, subject, text)=>{
         })
         console.log('Email sent successfully')
     }catch(error){
+        console.log(error.message)
         console.log('Email not sent')
+        //console.log(process.env.EMAIL_HOST)
+        //console.log(process.env.EMAIL_SERVICE)
+        //console.log(process.env.EMAIL_SECURE)
+        //console.log(process.env.EMAIL_USER)
+        //console.log(process.env.EMAIL_PASS)
     }
 }

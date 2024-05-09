@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const router = express.Router()
 const User = require('../model/user')
@@ -50,11 +51,12 @@ router.post('/register',async(req, res, next) => {
         const user = new User(result)
 
         const saveUser = await user.save()
-        await emailVerificationToken({
+        const token = await emailVerificationToken({
             userId: user.id,
             token: crypto.randomBytes(32).toString('hex')
         }).save()
-        const url = `${process.env.BaseUrl}user/${user.id}/verify/${emailVerificationToken.token}`
+        const url = `${process.env.EMAIL_BASEURL}auth/${user.id}/verify/${token.token}`
+
         await verifyEmail(user.email,'Verify email',url)
         
         res.status(201).send({message:'Verification code sent to your email'})
