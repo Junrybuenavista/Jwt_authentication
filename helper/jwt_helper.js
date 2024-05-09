@@ -58,7 +58,7 @@ module.exports = {
                 try{
                     client.SET(userId,token)
                     //client.setex(userId, 365*24*60*60,token)
-                    client.expire(userId,1000000)
+                    client.expire(userId,100)
                     resolve(token)   
                 }catch(err){
                     console.log(err.message)
@@ -73,19 +73,19 @@ module.exports = {
                 if(err) return reject(httpError.Unauthorized())
                 const userId = payload.aud          
 
-                   
-
                     try{
-                     
-                        const redisClientToken = client.GET(userId, (err, reply) =>{
-                            if(err)console.log(err.message)
-                            console.log(reply);
-                            return reply
-                        });   
-                        console.log(redisClientToken+'mytoken')
-                    if(refreshToken===redisClientToken){
-                            resolve(userId)
-                    } else reject(httpError.Unauthorized())
+                        async function processToken(){
+                            const redisClientToken = await client.GET(userId, function(err, reply){
+                                    if(err)console.log(err.message)
+                                    console.log(reply+' inside');
+                                    return reply
+                                });   
+                            console.log(redisClientToken)
+                            if(refreshToken===redisClientToken){
+                                resolve(userId)
+                            } else reject(httpError.Unauthorized())
+                        }
+                        processToken()
                     }catch(err){
                         console.log(err.message)
                         reject(httpError.InternalServerError())

@@ -17,12 +17,9 @@ client.on('connect',()=>{
 client.on('error', err => console.log('Redis Client Error', err))
 .connect();
 
-//client.set('Hellogfff', 'World')
 
-client.GET('hello', function(err, reply){
-    if(err)console.log(err.message)
-    console.log(reply);
-    return reply
-}); 
 
+
+
+   
 module.exports = client
