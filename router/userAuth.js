@@ -3,12 +3,15 @@ const express = require('express')
 const router = express.Router()
 const User = require('../model/user')
 const httpError = require('http-errors')
-const {authSchema} = require('../helper/validation_schema')
+const {authSchema,authSchemaLogin} = require('../helper/validation_schema')
 const {signAccessToken,signRefreshToken,verifyRefreshToken} = require('../helper/jwt_helper')
 const { verify } = require('jsonwebtoken')
 const  verifyEmail = require('../helper/verifyEmail')
 const emailVerificationToken = require('../model/emailVerificationToken')
 const crypto = require('crypto')
+const user = require('../model/user')
+const client = require('../helper/redisConnect')
+
 
 
 
@@ -18,8 +21,11 @@ router.get('/',async(req, res) => {
 
  router.post('/login',async(req, res,next) => {
     try{
+        
+        const result = await authSchemaLogin.validateAsync(req.body)
 
-        const result = await authSchema.validateAsync(req.body)
+        console.log(result)
+
         const user = await User.findOne({email: result.email})
 
         if(!user) throw httpError.NotFound(`This ${result.email} not found`)
@@ -28,7 +34,7 @@ router.get('/',async(req, res) => {
 
         const accessToken = await signAccessToken(user.id)
         const refreshToken = await signRefreshToken(user.id)
-        res.send({accessToken,refreshToken})
+        res.send({accessToken,refreshToken, name:user.name, verified:user.verified})
 
         
     }catch(error){
@@ -51,13 +57,13 @@ router.post('/register',async(req, res, next) => {
         const user = new User(result)
 
         const saveUser = await user.save()
-        const token = await emailVerificationToken({
+        /*const token = await emailVerificationToken({
             userId: user.id,
             token: crypto.randomBytes(32).toString('hex')
         }).save()
         const url = `${process.env.EMAIL_BASEURL}auth/${user.id}/verify/${token.token}`
 
-        await verifyEmail(user.email,'Verify email',url)
+        await verifyEmail(user.email,'Verify email',url)*/
         
         res.status(201).send({message:'Verification code sent to your email'})
 
@@ -71,21 +77,38 @@ router.post('/register',async(req, res, next) => {
 
 router.post('/refresh-token',async(req, res, next) => {
     try{
-        const {refreshToken} = req.body
-        if(!refreshToken) throw httpError.BadRequest()
-        const userId = await verifyRefreshToken(refreshToken)
+        const refToken = req.body.refreshToken
+        if(!refToken) throw httpError.BadRequest()
+        const userId = await verifyRefreshToken(refToken)
 
         const accessToken = await signAccessToken(userId)
-        const refreshToken2 = await signRefreshToken(userId)
-        res.send({accessToken,refreshToken2})
+        const refreshToken = await signRefreshToken(userId)
+        res.send({accessToken,refreshToken})
     }catch(error){
        next(error) 
     }
  })
 
-router.delete('/logout',async(req, res) => {
-    res.send('logout')
+router.post('/logout',async(req, res,next) => {
+    try{
+        const {refreshToken} = req.body
+        if(!refreshToken)throw httpError.createError.BadRequest()
+        const userId = await verifyRefreshToken(refreshToken)
+
+        await client.DEL(userId,(err, val)=>{
+            if(err){
+                console.log(err.message)
+                throw httpError.InternalServerError()
+            }
+            console.log(val)
+        })
+
+        res.send({message:'logout sucessfully'})
+    }catch(error){
+        next(error)
+    }
  })
+
 
  router.get('/:id/verify/:token', async (req,res)=>{
     try{

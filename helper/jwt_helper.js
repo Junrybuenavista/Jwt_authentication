@@ -9,7 +9,7 @@ module.exports = {
             }
             const secret = process.env.ACCESS_TOKEN_SECRET
             const options={
-                expiresIn:'1m',
+                expiresIn:'20s',
                 issuer:'jhunta.com',
                 audience: userId
             }
@@ -58,7 +58,7 @@ module.exports = {
                 try{
                     client.SET(userId,token)
                     //client.setex(userId, 365*24*60*60,token)
-                    client.expire(userId,100)
+                    client.expire(userId,365*24*60*60)
                     resolve(token)   
                 }catch(err){
                     console.log(err.message)
