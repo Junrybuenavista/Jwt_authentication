@@ -9,7 +9,6 @@ const { verify } = require('jsonwebtoken')
 const  verifyEmail = require('../helper/verifyEmail')
 const emailVerificationToken = require('../model/emailVerificationToken')
 const crypto = require('crypto')
-const user = require('../model/user')
 const client = require('../helper/redisConnect')
 
 

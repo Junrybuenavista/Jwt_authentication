@@ -19,8 +19,14 @@ app.get('/',verifyAccessToken,async(req, res) => {
     res.send('welcome ')
  })
 
+app.use(function(req,res,next){setTimeout(next,2000)});
+
 const usersRouter = require('./router/userAuth')
 app.use('/auth',usersRouter)
+
+const CategoryRouter = require('./router/CategoryRouter')
+//app.use('/product',verifyAccessToken,CategoryRouter)
+app.use('/product',verifyAccessToken,CategoryRouter)
 
 //-----------------------error handler-----------------------------
 

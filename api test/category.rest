@@ -1,0 +1,49 @@
+
+POST http://localhost:7777/product/category
+Content-Type: application/json
+
+{  
+
+    "name": "Canwwdsdsdsfdsfsfffff",
+    "description": "Item in a can"
+}
+###
+GET http://localhost:7777/product/category/list
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTU5MTcxMzgsImV4cCI6MTcxNTkxNzE1OCwiYXVkIjoiNjY0MzMyM2E5NjZjNDg0ZmY0MzViNDRlIiwiaXNzIjoiamh1bnRhLmNvbSJ9.jB38qfTYzMKWTHBDZO7wmpl6pli-cRhKNhfKh_9dzFg
+
+###
+POST http://localhost:7777/auth/login
+Content-Type: application/json
+
+{  
+
+    "email": "junrybuenavista@yahoo.com",
+    "password": "Junry1231"
+}
+
+###
+POST http://localhost:7777/auth/register
+Content-Type: application/json
+
+{   
+    "name": "Junry Buenavista",
+    "email": "junrybuenavista@yahoo.com",
+    "password": "Junry1231"
+}
+
+###
+POST http://localhost:7777/auth/refresh-token
+Content-Type: application/json
+
+{   
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTU5NDA0MjEsImV4cCI6MTc0NzQ5ODAyMSwiYXVkIjoiNjY0MzMyM2E5NjZjNDg0ZmY0MzViNDRlIiwiaXNzIjoiamh1bnRhLmNvbSJ9.sMCzmlCo4iEm97mUTo3j5hHzxLb0fvoibEGBVdUdv40"
+}
+
+###
+DELETE http://localhost:7777/auth/logout
+Content-Type: application/json
+
+{   
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTU5NDIzMTMsImV4cCI6MTc0NzQ5OTkxMywiYXVkIjoiNjY0MzMyM2E5NjZjNDg0ZmY0MzViNDRlIiwiaXNzIjoiamh1bnRhLmNvbSJ9.lXUH4mQDLDnrQC9yCVvKuDgYJS7MauCdC9xJWX-Ha_o"
+}
+####
