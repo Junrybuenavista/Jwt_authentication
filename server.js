@@ -26,7 +26,7 @@ app.use('/auth',usersRouter)
 
 const CategoryRouter = require('./router/CategoryRouter')
 //app.use('/product',verifyAccessToken,CategoryRouter)
-app.use('/product',verifyAccessToken,CategoryRouter)
+app.use('/product',CategoryRouter)
 
 //-----------------------error handler-----------------------------
 

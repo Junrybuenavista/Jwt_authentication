@@ -27,7 +27,8 @@ router.post('/category',async(req, res, next) => {
 
  router.get('/category/list',async(req, res) => {
     try{ 
-         const users = await Category.find()
+         const users = await Category.find({}).select('name description -_id');
+         
          res.json(users)
     }catch(err){
          res.status(500).json({message: err.message})
