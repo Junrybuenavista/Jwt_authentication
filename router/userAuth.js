@@ -11,9 +11,6 @@ const emailVerificationToken = require('../model/emailVerificationToken')
 const crypto = require('crypto')
 const client = require('../helper/redisConnect')
 
-
-
-
 router.get('/',async(req, res) => {
     res.send('welcome')
  })
@@ -41,8 +38,6 @@ router.get('/',async(req, res) => {
         next(error)
     }
  })
-
-
 
 router.post('/register',async(req, res, next) => {
 
