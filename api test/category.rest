@@ -3,14 +3,22 @@ POST http://localhost:7777/product/category
 Content-Type: application/json
 
 {  
-
-    "name": "Canwwdsdsdsfdsfsfffff",
-    "description": "Item in a can"
+    "userId": "664ae227d00fb6b772acb2b0",
+    "name": "test4dssffffff",
+    "description": "test2"
 }
 ###
-GET http://localhost:7777/product/category/list
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTU5MTcxMzgsImV4cCI6MTcxNTkxNzE1OCwiYXVkIjoiNjY0MzMyM2E5NjZjNDg0ZmY0MzViNDRlIiwiaXNzIjoiamh1bnRhLmNvbSJ9.jB38qfTYzMKWTHBDZO7wmpl6pli-cRhKNhfKh_9dzFg
+POST http://localhost:7777/product/delete/6656d3b3aacbdacec28a642d
+Content-Type: application/json
 
+
+###
+GET http://localhost:7777/product/category/list
+Content-Type: application/json
+
+{  
+    "userId": "664ae227d00fb6b772acb2b0"
+}
 ###
 POST http://localhost:7777/auth/login
 Content-Type: application/json

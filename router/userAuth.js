@@ -30,7 +30,7 @@ router.get('/',async(req, res) => {
 
         const accessToken = await signAccessToken(user.id)
         const refreshToken = await signRefreshToken(user.id)
-        res.send({accessToken,refreshToken, name:user.name, verified:user.verified})
+        res.send({accessToken,refreshToken, name:user.name, verified:user.verified, id:user.id})
 
         
     }catch(error){
