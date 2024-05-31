@@ -19,14 +19,18 @@ app.get('/',verifyAccessToken,async(req, res) => {
     res.send('welcome ')
  })
 
-app.use(function(req,res,next){setTimeout(next,2000)});
+app.use(function(req,res,next){setTimeout(next,1000)});
 
 const usersRouter = require('./router/userAuth')
 app.use('/auth',usersRouter)
 
-const CategoryRouter = require('./router/CategoryRouter')
+const StudentRouter = require('./router/StudentRouter')
 //app.use('/product',verifyAccessToken,CategoryRouter)
-app.use('/product',CategoryRouter)
+app.use('/student',StudentRouter)
+
+const courseAndGradeRouter = require('./router/courseAndGradeRouter')
+//app.use('/product',verifyAccessToken,CategoryRouter)
+app.use('/course_and_grade',courseAndGradeRouter)
 
 //-----------------------error handler-----------------------------
 

@@ -1,19 +1,22 @@
 
-POST http://localhost:7777/product/category
+POST http://localhost:7777/student
 Content-Type: application/json
 
 {  
-    "userId": "664ae227d00fb6b772acb2b0",
-    "name": "test4dssffffff",
-    "description": "test2"
+    "userId": "664ae227d00fb6b772acb2b",
+    "first_name": "test",
+    "last_name": "test4d",
+    "middle_name": "test2",
+    "age": "56",
+    "address": "test2"
 }
 ###
-POST http://localhost:7777/product/delete/6656d3b3aacbdacec28a642d
+POST http://localhost:7777/student/delete/66595c77bae13f40a44b2bbd
 Content-Type: application/json
 
 
 ###
-GET http://localhost:7777/product/category/list
+POST http://localhost:7777/student/list
 Content-Type: application/json
 
 {  

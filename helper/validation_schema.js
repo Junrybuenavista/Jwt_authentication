@@ -11,12 +11,23 @@ const authSchemaLogin = Joi.object({
     password: Joi.string().min(5).required()
 })
 
-const categoryValidation = Joi.object({
+const StudentValidation = Joi.object({
     userId: Joi.string().required(),
-    name: Joi.string().min(5).required(),
-    description: Joi.string().required()
+    first_name: Joi.string().required(),
+    last_name: Joi.string().required(),
+    middle_name: Joi.string().required(),
+    age: Joi.number().required(),
+    address: Joi.string().required(),
+    gender: Joi.string().required(),
+    coursegradeId: Joi.string().required(),
+})
+
+const CourseAndGradeValidation =  Joi.object({
+    userId: Joi.string().required(),
+    name: Joi.string().required(),
+    description: Joi.string().required(),
 })
 
 module.exports = {
-    authSchema,authSchemaLogin,categoryValidation
+    authSchema,authSchemaLogin,StudentValidation, CourseAndGradeValidation
 }
