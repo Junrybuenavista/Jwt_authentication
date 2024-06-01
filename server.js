@@ -30,7 +30,7 @@ app.use('/student',StudentRouter)
 
 const courseAndGradeRouter = require('./router/courseAndGradeRouter')
 //app.use('/product',verifyAccessToken,CategoryRouter)
-app.use('/course_and_grade',courseAndGradeRouter)
+app.use('/course_and_grade',verifyAccessToken, courseAndGradeRouter)
 
 //-----------------------error handler-----------------------------
 
