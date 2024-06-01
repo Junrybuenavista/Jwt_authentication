@@ -8,7 +8,9 @@ const httpError = require('http-errors')
 
 router.post('/',async(req, res, next) => {
     try{
+        console.log(JSON.stringify(req.body)+'ffff')
         const result = await StudentValidation.validateAsync(req.body)
+      
         const isStudentExist = await Student.findOne({first_name: result.first_name, last_name: result.last_name,userId: result.userId })
         if(isStudentExist) throw httpError.Conflict(`${result.first_name} is already registered`)
 
@@ -27,8 +29,10 @@ router.post('/',async(req, res, next) => {
  router.post('/list',async(req, res) => {
     try{ 
           console.log(req.body.userId)
-          const users = await Student.find({userId: req.body.userId}).select('first_name last_name middle_name age address _id');
-         
+          
+          var users = await Student.find({userId: req.body.userId, coursegradeId:req.body.coursegradeId}).select('first_name last_name middle_name gender age address _id');
+          if(!req.body.coursegradeId) var users = await Student.find({userId: req.body.userId}).select('first_name last_name middle_name gender age address _id');
+
           res.json(users)
     }catch(err){
            res.status(500).json({message: err.message})

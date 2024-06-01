@@ -15,12 +15,13 @@ const studentSchema = new mongoose.Schema({
     middle_name:{
         type: String,    
     },
-    age:{
-        type: Number,     
-    },
     gender:{
         type: String,     
     },
+    age:{
+        type: Number,     
+    },
+
     address:{
         type: String,   
     },

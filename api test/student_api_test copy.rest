@@ -3,12 +3,14 @@ POST http://localhost:7777/student
 Content-Type: application/json
 
 {  
-    "userId": "664ae227d00fb6b772acb2b",
-    "first_name": "test",
+    "userId": "664ae227d00fb6b772acb2b0",
+    "first_name": "testff",
     "last_name": "test4d",
     "middle_name": "test2",
     "age": "56",
-    "address": "test2"
+    "gender": "ff",
+    "address": "test2",
+    "coursegradeId": "6659d3231c364bdd54a17dbe"
 }
 ###
 POST http://localhost:7777/student/delete/66595c77bae13f40a44b2bbd
@@ -20,7 +22,8 @@ POST http://localhost:7777/student/list
 Content-Type: application/json
 
 {  
-    "userId": "664ae227d00fb6b772acb2b0"
+    "userId": "664ae227d00fb6b772acb2b0",
+    "coursegradeId":"6659a473ea2a16f83931beb5"
 }
 ###
 POST http://localhost:7777/auth/login

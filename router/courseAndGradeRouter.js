@@ -27,7 +27,7 @@ router.post('/',async(req, res, next) => {
  router.post('/list',async(req, res) => {
     try{ 
           console.log(req.body.userId)
-          const users = await CourseAndGrade.find({userId: req.body.userId}).select('name description userId _id');
+          const users = await CourseAndGrade.find({userId: req.body.userId}).select('name description _id');
          
           res.json(users)
     }catch(err){

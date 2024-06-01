@@ -11,13 +11,12 @@ Content-Type: application/json
 POST http://localhost:7777/course_and_grade/delete/665994b3cc50ba99d1796f5b
 Content-Type: application/json
 
-
 ###
 POST http://localhost:7777/course_and_grade/list
 Content-Type: application/json
 
 {  
-    "userId": "664ae227d00fb6b772acb2b0"
+    "userId": "664ae227d00fb6b772acb2b0",
 }
 ###
 
