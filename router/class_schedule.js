@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const CourseAndGrade = require('../model/course_grade')
+const CourseAndGrade = require('../model/class_schedule')
 const {CourseAndGradeValidation} = require('../helper/validation_schema')
 const httpError = require('http-errors')
 

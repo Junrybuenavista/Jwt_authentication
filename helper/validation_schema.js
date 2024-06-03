@@ -22,12 +22,15 @@ const StudentValidation = Joi.object({
     coursegradeId: Joi.string().required(),
 })
 
-const CourseAndGradeValidation =  Joi.object({
+const ClassScheduleValidation =  Joi.object({
     userId: Joi.string().required(),
     name: Joi.string().required(),
     description: Joi.string().required(),
+    scheduleDay: Joi.string().required(),
+    scheduleTimeFrom: Joi.string().required(),
+    scheduleTimeTo: Joi.string().required(),
 })
 
 module.exports = {
-    authSchema,authSchemaLogin,StudentValidation, CourseAndGradeValidation
+    authSchema,authSchemaLogin,StudentValidation, ClassScheduleValidation
 }

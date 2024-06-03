@@ -1,11 +1,14 @@
 
-POST http://localhost:7777/course_and_grade
+POST http://localhost:7777/class_schedule
 Content-Type: application/json
 
 {  
     "userId": "664ae227d00fb6b772acb2b0",
     "name": "test",
-    "description": "test4d"
+    "description": "test4d",
+    "scheduleDay": "",
+    "scheduleTimeFrom": "",
+    "scheduleTimeTo":""
 }
 ###
 POST http://localhost:7777/course_and_grade/delete/665994b3cc50ba99d1796f5b

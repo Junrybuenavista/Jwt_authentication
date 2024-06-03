@@ -28,9 +28,8 @@ const StudentRouter = require('./router/StudentRouter')
 //app.use('/product',verifyAccessToken,CategoryRouter)
 app.use('/student',verifyAccessToken, StudentRouter)
 
-const courseAndGradeRouter = require('./router/courseAndGradeRouter')
-//app.use('/product',verifyAccessToken,CategoryRouter)
-app.use('/course_and_grade',verifyAccessToken, courseAndGradeRouter)
+const class_schedule = require('./router/class_schedule')
+app.use('/class_schedule',class_schedule)
 
 //-----------------------error handler-----------------------------
 

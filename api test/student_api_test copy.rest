@@ -23,7 +23,7 @@ Content-Type: application/json
 
 {  
     "userId": "664ae227d00fb6b772acb2b0",
-    "coursegradeId":"6659a473ea2a16f83931beb5"
+    "coursegradeId":"6659aa67ea2a16f83931bece"
 }
 ###
 POST http://localhost:7777/auth/login
