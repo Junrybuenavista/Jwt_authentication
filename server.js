@@ -26,7 +26,7 @@ app.use('/auth',usersRouter)
 
 const StudentRouter = require('./router/StudentRouter')
 //app.use('/product',verifyAccessToken,CategoryRouter)
-app.use('/student',StudentRouter)
+app.use('/student',verifyAccessToken, StudentRouter)
 
 const courseAndGradeRouter = require('./router/courseAndGradeRouter')
 //app.use('/product',verifyAccessToken,CategoryRouter)
