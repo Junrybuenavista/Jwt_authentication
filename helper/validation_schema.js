@@ -26,7 +26,7 @@ const ClassScheduleValidation =  Joi.object({
     userId: Joi.string().required(),
     name: Joi.string().required(),
     description: Joi.string().required(),
-    scheduleDay: Joi.string().required(),
+    scheduleDay: Joi.array().required(),
     scheduleTimeFrom: Joi.string().required(),
     scheduleTimeTo: Joi.string().required(),
 })

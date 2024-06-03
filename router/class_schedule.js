@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const CourseAndGrade = require('../model/class_schedule')
-const {CourseAndGradeValidation} = require('../helper/validation_schema')
+const {ClassScheduleValidation} = require('../helper/validation_schema')
 const httpError = require('http-errors')
 
 
@@ -9,7 +9,7 @@ const httpError = require('http-errors')
 router.post('/',async(req, res, next) => {
 
     try{
-        const result = await CourseAndGradeValidation.validateAsync(req.body)
+        const result = await ClassScheduleValidation.validateAsync(req.body)
         console.log(result)
         const isCourseAndGradeExist = await CourseAndGrade.findOne({name: result.name, userId: result.userId })
         if(isCourseAndGradeExist) throw httpError.Conflict(`${result.name} is already registered`)
