@@ -10,20 +10,22 @@ Content-Type: application/json
     "age": "56",
     "gender": "ff",
     "address": "test2",
-    "coursegradeId": "6659d3231c364bdd54a17dbe"
+    "classId": "6659d3231c364bdd54a17dbe"
 }
 ###
 POST http://localhost:7777/student/delete/66595c77bae13f40a44b2bbd
+
 Content-Type: application/json
 
 
 ###
 POST http://localhost:7777/student/list
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTc2NjA2NjIsImV4cCI6MTcxNzY2MDY4MiwiYXVkIjoiNjY0YWUyMjdkMDBmYjZiNzcyYWNiMmIwIiwiaXNzIjoiamh1bnRhLmNvbSJ9._BL0lXNf92ha7SzTGhAdPADbdsdgWUCAndUV85tQBAU
 Content-Type: application/json
 
 {  
     "userId": "664ae227d00fb6b772acb2b0",
-    "coursegradeId":"6659aa67ea2a16f83931bece"
+    "classId":"66616e4346fe57f4de298beb"
 }
 ###
 POST http://localhost:7777/auth/login

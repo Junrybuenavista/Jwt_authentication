@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const CourseAndGrade = require('../model/class_schedule')
+const ClassSchedule = require('../model/class_schedule')
 const {ClassScheduleValidation} = require('../helper/validation_schema')
 const httpError = require('http-errors')
 
@@ -11,11 +11,11 @@ router.post('/',async(req, res, next) => {
     try{
         const result = await ClassScheduleValidation.validateAsync(req.body)
         console.log(result)
-        const isCourseAndGradeExist = await CourseAndGrade.findOne({name: result.name, userId: result.userId })
-        if(isCourseAndGradeExist) throw httpError.Conflict(`${result.name} is already registered`)
+        const isClassScheduleExist = await ClassSchedule.findOne({className: result.className, userId: result.userId })
+        if(isClassScheduleExist) throw httpError.Conflict(`${result.className} is already registered`)
 
-        await new CourseAndGrade(result).save()
-        res.status(201).send({message:'CourseAndGrade saved!'})
+        await new ClassSchedule(result).save()
+        res.status(201).send({message:'ClassSchedule saved!'})
 
     }catch(error){
         console.log(error)
@@ -27,9 +27,9 @@ router.post('/',async(req, res, next) => {
  router.post('/list',async(req, res) => {
     try{ 
           console.log(req.body.userId)
-          const users = await CourseAndGrade.find({userId: req.body.userId}).select('name description _id');
+          const ClassSched = await ClassSchedule.find({userId: req.body.userId}).select('className description _id scheduleDay scheduleTimeFrom scheduleTimeTo')
          
-          res.json(users)
+          res.status(201).send(ClassSched)
     }catch(err){
            res.status(500).json({message: err.message})
     }
@@ -37,10 +37,10 @@ router.post('/',async(req, res, next) => {
 
  router.post('/delete/:id',async(req, res) => {
     try{ 
-         const deleteCourseAndGrade = await CourseAndGrade.findOne({_id: req.params.id})
-         if(!CourseAndGrade) return res.status(400).send({message:'cant find CourseAndGrade'})
+         const deleteClassSchedule = await ClassSchedule.findOne({_id: req.params.id})
+         if(!ClassSchedule) return res.status(400).send({message:'cant find ClassSchedule'})
 
-         await deleteCourseAndGrade.deleteOne()
+         await deleteClassSchedule.deleteOne()
          res.send({message:'successffuly deleted'})
     }catch(err){
          res.status(500).json({message: err.message})

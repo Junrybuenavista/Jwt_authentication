@@ -6,17 +6,17 @@ const classScheduleSchema = new mongoose.Schema({
         type: String,
         ref: 'user',
     },
-    name:{
+    className:{
         type: String,
     },
-    scheduleDay:{
-        type: Array
-    },
+    scheduleDay:[{
+        type: String
+    }],
     scheduleTimeFrom:{
-        type: Date
+        type: String
     },
     scheduleTimeTo:{
-        type: Date
+        type: String
     },
     description:{
         type: String,      

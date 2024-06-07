@@ -25,7 +25,7 @@ const studentSchema = new mongoose.Schema({
     address:{
         type: String,   
     },
-    coursegradeId:{
+    classId:{
         type: String,
     }
 })

@@ -6,11 +6,11 @@ const attendanceSchema = new mongoose.Schema({
         type: String,
         ref: 'user',
     },
-    name:{
+    studentId:{
         type: String,
     },
-    description:{
-        type: String,      
+    date:{
+        type: date,      
     }
 })
 

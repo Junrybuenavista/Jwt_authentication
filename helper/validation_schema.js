@@ -9,6 +9,7 @@ const authSchema = Joi.object({
 const authSchemaLogin = Joi.object({
     email: Joi.string().email().lowercase().required(),
     password: Joi.string().min(5).required()
+
 })
 
 const StudentValidation = Joi.object({
@@ -19,12 +20,12 @@ const StudentValidation = Joi.object({
     age: Joi.number().required(),
     address: Joi.string().required(),
     gender: Joi.string().required(),
-    coursegradeId: Joi.string().required(),
+    classId: Joi.string().required(),
 })
 
 const ClassScheduleValidation =  Joi.object({
     userId: Joi.string().required(),
-    name: Joi.string().required(),
+    className: Joi.string().required(),
     description: Joi.string().required(),
     scheduleDay: Joi.array().required(),
     scheduleTimeFrom: Joi.string().required(),
